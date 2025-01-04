@@ -1,0 +1,21 @@
+#! /bin/bash
+set -euo pipefail
+
+script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+export PYENV_ROOT="${script_dir}/.pyenv"
+export PATH="${PYENV_ROOT}/bin:${PATH}"
+
+if [ -d "${PYENV_ROOT}" ]; then
+    pyenv update
+else
+    curl -fsSL https://pyenv.run | bash
+fi
+
+pyenv install --skip-existing
+
+[ -d "${PYENV_ROOT}/versions/.venv" ] || pyenv virtualenv .venv
+# shellcheck source=/dev/null
+. "${PYENV_ROOT}/versions/.venv/bin/activate"
+python -m pip install --disable-pip-version-check --requirement requirements.dev.txt
+
+python -m unittest discover -v
