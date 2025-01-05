@@ -15,3 +15,4 @@
 - The build-and-test script is too long; pyenv should do more of this work for me
 - Mac/Linux only, no Windows
 - Requires Bash
+- No natural place to make additional tasks, like update_dependencies
