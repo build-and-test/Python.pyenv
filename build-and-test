@@ -1,6 +1,8 @@
 #! /bin/bash
 set -euo pipefail
 
+export PYENV_GIT_TAG=v2.4.23
+
 script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 export PYENV_ROOT="${script_dir}/.pyenv"
 export PATH="${PYENV_ROOT}/bin:${PATH}"

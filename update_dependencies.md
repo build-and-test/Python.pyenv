@@ -14,6 +14,10 @@ pip-compile --upgrade --strip-extras --newline LF --quiet --output-file=requirem
 pip-compile --upgrade --strip-extras --newline LF --quiet --output-file=requirements.dev.txt requirements.dev.in
 ```
 
+# Pyenv
+
+Edit `build-and-test` to set `PYENV_GIT_TAG`.
+
 # GitHub Actions
 
 Automatically updated by dependabot.
